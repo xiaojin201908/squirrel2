@@ -1,3 +1,4 @@
+
 """
 Django settings for squirrel project.
 
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'sightings.apps.SightingsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

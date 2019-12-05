@@ -2,41 +2,45 @@ import os
 import csv
 
 from django.core.management.base import BaseCommand, CommandError
-from django.db.models.loading import get_model
 
 class Command(BaseCommand):
-    args = 'squirrel_n.csv'
-    help = 'Import `Model`.csv into `Model` database.'
+    def add_arguments(self,parser):
+        parser.add_argument('csvfile',nargs='+',type=str)
 
     def handle(self, *args, **options):
-        if len(args) != 1:
-            raise CommandError ("Invalid Invocation. See help.")
-
-        csvPath = args[0]
-        if not os.path.exists (csvPath):
-            raise CommandError ("%s doesnt exist." %csvPath)
-
-        model, _ = os.path.splitext (os.path.basename(csvPath))
-        Model = get_model ("lotaya", model.title ())
-        if not Model:
-            raise CommandError ("%s Model doesn't exist'")
-
-        model_fields = [f.name for f in Model._meta.fields]
-        fields_name = []
-        with open (csvPath, 'rb') as csvFile:
-            reader = csv.reader (csvFile, delimiter=',', quotechar="\"")
-            fields_name = reader.next ()
-            for i, _ in enumerate(fields_name):
-                fields_name[i] = fields_name[i].lower ()
-                fields_name[i] = fields_name[i].replace (' ', '_')
-                if not fields_name[i] in model_fields:
-                    raise CommandError ("%s field doesn't exists in %s Model" %(fields_name[i], Model))
-
+        path = options['csvfile'][0]
+        import os
+        import csv
+        from squirrel.models import Squirrel
+        import datetime
+        with open(path, 'r') as csvFile:
+            reader = csv.DictReader(csvFile, delimiter=',')
             for row in reader:
-                try:
-                    obj = Model()
-                    for i, field in enumerate(row):
-                        setattr (obj, fields_name[i], field)
-                    obj.save ()
-                except Exception,e:
-                    raise CommandError(e)
+                while row['Unique Squirrel ID'] in Squirrel.objects.values_list('unique_squirrel_id',flat=True):
+                    row['Unique Squirrel ID'] += '-R'
+                s=Squirrel(latitude=row['Y'],
+                        longitude=row['X'],
+                        unique_squirrel_id=row['Unique Squirrel ID'],
+                        shift=row['Shift'],
+                        date=datetime.datetime.strptime(row['Date'],'%m%d%Y'),
+                        age=row['Age'],
+                        primary_fur_color=row['Primary Fur Color'],
+                        location=row['Location'],
+                        specific_location=row['Specific Location'],
+                        running=row['Running'],
+                        chasing=row['Chasing'],
+                        climbing=row['Climbing'],
+                        eating=row['Eating'],
+                        foraging=row['Foraging'],
+                        other_activities=row['Other Activities'],
+                        kuks=row['Kuks'],
+                        quaas=row['Quaas'],
+                        moans=row['Moans'],
+                        tail_flags=row['Tail flags'],
+                        tail_twitches=row['Tail twitches'],
+                        approaches=row['Approaches'],
+                        indifferent=row['Indifferent'],
+                        runs_from=row['Runs from'])
+                s.save()
+
+            print('Imported ',len(Squirrel.objects.all()), 'squirrel sightings!')

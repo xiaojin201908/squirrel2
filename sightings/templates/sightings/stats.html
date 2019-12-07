@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: center;
+}
+</style>
 
 </head>
 <body>
@@ -14,9 +23,9 @@
                 <th>Running</th>
                 <th>Frequency</th>
         </tr>
-        {% for color, freq in running_dict.items %}
+        {% for color, freq in run_dict.items %}
                 <tr>
-                        <td>{{ running }}</td>
+                        <td>{{ run }}</td>
                         <td>{{ freq }}</td>
                 </tr>
         {% endfor %}
@@ -40,9 +49,9 @@
                 <th>Eating</th>
                 <th>Frequency</th>
         </tr>
-        {% for response, freq in eating_dict.items %}
+        {% for response, freq in eat_dict.items %}
                 <tr>
-                        <td>{{ eating }}</td>
+                        <td>{{ eat }}</td>
                         <td>{{ freq }}</td>
                 </tr>
         {% endfor %}

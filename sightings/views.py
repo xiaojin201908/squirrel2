@@ -73,17 +73,9 @@ def stats(request):
     eat_list = [value[0] for value in list(Squirrel.objects.all().values_list('eating'))]
     eat_dict = dict(Counter(eat_list))
     
-    # tails
-    tail_flag_count = len([value[0] for value in list(Squirrel.objects.all().values_list('tail_flags')) if value[0] == 'true'])
-    tail_twitch_count = len([value[0] for value in list(Squirrel.objects.all().values_list('tail_twitches')) if value[0] == 'true'])
-    tail_dict = {'Flags':tail_flag_count,
-                     'Twitches':tail_twitch_count,}
-    
-    context = {'adult_juvenile': adult_juvenile,
-               'color_dict': color_dict,
-               'shift_dict': shift_dict,
-               'response_dict': response_dict,
-               'tail_dict':tail_dict,}
+    #Climbing
+    climb_list = [value[0] for value in list(Squirrel.objects.all().values_list('climbing'))]
+    climb_dict = dict(Counter(climb_list))  
    
 
     return render(request,'sightings/stats.html',context)

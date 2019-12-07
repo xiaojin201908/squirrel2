@@ -11,7 +11,7 @@
   - $ python manage.py import /path/to/file.csv 
 - export database in django to local 
   - $ python manage.py export /path/to/file.csv
-# Website Fuctions
+# Website Functions
 - view details of each squirrel sighting
 - update details of each squirrel sighting
 - add a new squirrel sighting to the database

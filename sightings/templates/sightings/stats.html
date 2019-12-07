@@ -23,7 +23,7 @@ th, td {
                 <th>Running</th>
                 <th>Frequency</th>
         </tr>
-        {% for color, freq in run_dict.items %}
+        {% for run, freq in run_dict.items %}
                 <tr>
                         <td>{{ run }}</td>
                         <td>{{ freq }}</td>
@@ -49,7 +49,7 @@ th, td {
                 <th>Eating</th>
                 <th>Frequency</th>
         </tr>
-        {% for response, freq in eat_dict.items %}
+        {% for eat, freq in eat_dict.items %}
                 <tr>
                         <td>{{ eat }}</td>
                         <td>{{ freq }}</td>
@@ -62,7 +62,7 @@ th, td {
                 <th>Climbing</th>
                 <th>Frequency</th>
         </tr>
-        {% for response, freq in climb_dict.items %}
+        {% for climb, freq in climb_dict.items %}
                 <tr>
                         <td>{{ climb }}</td>
                         <td>{{ freq }}</td>

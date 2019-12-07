@@ -54,11 +54,6 @@ def update(request,unique_squirrel_id):
 
 def stats(request):
     from collections import Counter
-    # number of adults per juvenile
-    age_list = [value[0] for value in list(Squirrel.objects.all().values_list('age'))]
-    age_dict = dict(Counter(age_list))
-    adult_juvenile = age_dict['Adult']/age_dict['Juvenile']
-    adult_juvenile = round(adult_juvenile,2)
     
     # Running
     run_list = [value[0] for value in list(Squirrel.objects.all().values_list('running'))]
@@ -80,7 +75,8 @@ def stats(request):
     lat_list =[value[0] for value in list(Squirrel.objects.all().values_list('latitude'))]
     n = len(lat_list) 
     get_sum = sum(lat_list) 
-    mean = get_sum / n 
+    mean = get_sum / n
+    mean = round(mean,6)
    
     context = {'adult_juvenile': adult_juvenile,
                'run_dict': run_dict,

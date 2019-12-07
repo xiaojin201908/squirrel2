@@ -11,7 +11,11 @@
   - $ python manage.py import /path/to/file.csv 
 - export database in django to local 
   - $ python manage.py export /path/to/file.csv
-
+# Website Fuctions
+- view details of each squirrel sighting
+- update details of each squirrel sighting
+- add a new squirrel sighting to the database
+- view the location of each squirrel sighting
 # Group Name and Section
 Project Group 6, Section 2
 # UNI of Each Memeber

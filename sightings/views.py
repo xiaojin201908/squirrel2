@@ -44,26 +44,31 @@ def add(request):
             s.indifferent = request.POST.get('indifferent')
             s.runs_from = request.POST.get('runs_from')
             s.save()
-            success = 'Successfully added!'
+            yes = 'Successfully added!'
             
             context = {'date_error':date_error,
-                       'success':success,}
+                       'success':yes,}
     return render(request,'sightings/add.html',context)
 
 
 def update(request,unique_squirrel_id):
-    instance = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
+    upup = Squirrel.objects.get(id = unique_squirrel_id)
+    #instance = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
     if request.method == 'POST':
-        form = SquirrelForm(request.POST or None, instance=instance,auto_id=False)
+        form = SquirrelForm(request.POST, instance=upup)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.save()
-            success = "Successfully Updated!"
-            context = {'form': form,
-                      'instance': instance,
-                      'success': success,}
+            form.save()
+            return redirect(f'/sightings/{unique_squirrel_id}')
+        
+        
+         #   instance = form.save(commit=False)
+          #  instance.save()
+          #  success = "Successfully Updated!"
+          #  context = {'form': form,
+           #           'instance': instance,
+           #           'success': success,}
 
-            return render(request, 'sightings/edit.html', context)
+            #return render(request, 'sightings/edit.html', context)
     
         else:
             context= {'form': form,
@@ -72,7 +77,7 @@ def update(request,unique_squirrel_id):
             return render(request,'sightings/edit.html' , context)      
 
     else:
-        form = SquirrelForm(instance=instance,auto_id=False)
+        form = SquirrelForm(instance=upup)
         context = {'form': form,
                   'instance': instance}
 

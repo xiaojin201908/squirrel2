@@ -17,7 +17,7 @@ class Command(BaseCommand):
             reader = csv.DictReader(csvFile, delimiter=',')
             for row in reader:
                 while row['Unique Squirrel ID'] in Squirrel.objects.values_list('unique_squirrel_id',flat=True):
-                    row['Unique Squirrel ID'] += '-R'
+                    row['Unique Squirrel ID'] += '-2nd'
                 s=Squirrel(latitude=row['Y'],
                         longitude=row['X'],
                         unique_squirrel_id=row['Unique Squirrel ID'],

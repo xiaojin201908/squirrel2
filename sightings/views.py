@@ -1,14 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
-from django.contrib import messages
 from .models import Squirrel
 from .forms import SquirrelForm
 import datetime
 
-def main_list(request):
-    all_squirrels = Squirrel.objects.all()[::-1]
-    return render(request, 'sightings/main_list.html',{'all_squirrels':all_squirrels})
+def all_list(request):
+    all_squirrel = Squirrel.objects.all()[::-1]
+    return render(request, 'sightings/all_list.html',{'all_squirrels':all_squirrel})
     
 def add(request):
     context = dict()

@@ -14,10 +14,11 @@ We design this web applications to collect track paths of squirrels near the Cen
   - $ python manage.py export_squirrel_data /path/to/file.csv
  
 # Website Functions
-- view the details of each squirrel sighting
+- view the details of each squirrel sighting on home page
 - update the details of each squirrel sighting
 - add a new squirrel sighting to database
 - view the location of each squirrel sighting
+- view counts of running, eating, climbing, shift, and mean of latitude
 
 # Group Name and Section
 Project Group 6, Section 2

@@ -7,7 +7,7 @@ We design this web applications to collect track paths of squirrels near the Cen
 
 
 
-# Main Comand
+# Management Comand
 - import squarrel data to django database
   - $ python manage.py import_squirrel_data /path/to/file.csv
 - export database in django to local 

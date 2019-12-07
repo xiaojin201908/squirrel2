@@ -1,6 +1,7 @@
 import os
 import csv
-
+from sightings.models import Squirrel
+import datetime
 from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
@@ -9,8 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         path = options['csvfile'][0]
-        from sightings.models import Squirrel
-        import datetime
+
         with open(path, 'r') as csvFile:
             reader = csv.DictReader(csvFile, delimiter=',')
             for row in reader:

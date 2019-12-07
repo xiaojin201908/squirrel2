@@ -15,7 +15,7 @@ def add(request):
         #check data with form
         if form.is_valid():
             form.save()
-            return redirect(f'/sighting/all_list')
+            return redirect(f'/sightings/all_list')
         
         else:
             context= {'form': form,

@@ -20,12 +20,12 @@ th, td {
 <table style="width:40%">
         <tr>
                 <th>Running</th>
-                <th>Frequency</th>
+                <th>Counts</th>
         </tr>
-        {% for run, freq in run_dict.items %}
+        {% for run, count in run_dict.items %}
                 <tr>
                         <td>{{ run }}</td>
-                        <td>{{ freq }}</td>
+                        <td>{{ count }}</td>
                 </tr>
         {% endfor %}
 </table>
@@ -33,12 +33,12 @@ th, td {
 <table style="width:40%">
         <tr>
                 <th>Shift</th>
-                <th>Frequency</th>
+                <th>Counts</th>
         </tr>
-        {% for shift, freq in shift_dict.items %}
+        {% for shift, count in shift_dict.items %}
                 <tr>
                         <td>{{ shift }}</td>
-                        <td>{{ freq }}</td>
+                        <td>{{ count }}</td>
                 </tr>
         {% endfor %}
 </table>
@@ -46,12 +46,12 @@ th, td {
 <table style="width:40%">
         <tr>
                 <th>Eating</th>
-                <th>Frequency</th>
+                <th>Counts</th>
         </tr>
-        {% for eat, freq in eat_dict.items %}
+        {% for eat, count in eat_dict.items %}
                 <tr>
                         <td>{{ eat }}</td>
-                        <td>{{ freq }}</td>
+                        <td>{{ count }}</td>
                 </tr>
         {% endfor %}
 </table>
@@ -59,12 +59,12 @@ th, td {
 <table style="width:40%">
         <tr>
                 <th>Climbing</th>
-                <th>Frequency</th>
+                <th>Counts</th>
         </tr>
-        {% for climb, freq in climb_dict.items %}
+        {% for climb, count in climb_dict.items %}
                 <tr>
                         <td>{{ climb }}</td>
-                        <td>{{ freq }}</td>
+                        <td>{{ count }}</td>
                 </tr>
         {% endfor %}
 </table>

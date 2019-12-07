@@ -23,7 +23,7 @@ All current PEPs, as well as guidelines for submitting a new PEP, are listed at
 
 # Main Comand
 - import squarrel data to django database
-  - python manage.py import
+  - python manage.py import_squirrel_data /path/to/file.csv
 - export database in django to local 
 
 # Group Name and Section

@@ -79,7 +79,7 @@ def update(request,unique_squirrel_id):
     else:
         form = SquirrelForm(instance=upup)
         context = {'form': form,
-                  'instance': instance}
+                  'instance': upup}
 
         return render(request, 'sightings/edit.html', context)
 

@@ -92,9 +92,9 @@ def stats(request):
 
 def map_plot(request):
     n = 100
-    lats = Squirrel.objects.values_list('latitude',flat=True)[:n]
-    longs = Squirrel.objects.values_list('longitude',flat=True)[:n]
-    ids = Squirrel.objects.values_list('unique_squirrel_id',flat=True)[:n]
+    latitudes = Squirrel.objects.values_list('latitude',flat=True)[:n]
+    longitudes = Squirrel.objects.values_list('longitude',flat=True)[:n]
+    uniqueids = Squirrel.objects.values_list('unique_squirrel_id',flat=True)[:n]
 
     mapmap = [ {"type": "Feature",
                         "properties": {
@@ -104,7 +104,7 @@ def map_plot(request):
                         "geometry": {
                             "type": "Point",
                             "coordinates": [float(lon),float(lat)] }}
-                        for ident,lon,lat in zip(ids,longs,lats) ] 
+                        for ident,lon,lat in zip(uniqueids,longitudes,latitudes) ] 
     context = {'geo_json':mapmap}
 
     return render(request, 'sightings/map.html', context)

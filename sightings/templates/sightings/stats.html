@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  text-align: center;
-}
-</style>
+
 </head>
 <body>
 
@@ -19,12 +11,12 @@ th, td {
 <br>
 <table style="width:40%">
         <tr>
-                <th>Fur Color</th>
+                <th>Running</th>
                 <th>Frequency</th>
         </tr>
-        {% for color, freq in color_dict.items %}
+        {% for color, freq in running_dict.items %}
                 <tr>
-                        <td>{{ color }}</td>
+                        <td>{{ running }}</td>
                         <td>{{ freq }}</td>
                 </tr>
         {% endfor %}
@@ -45,12 +37,12 @@ th, td {
 <br>
 <table style="width:40%">
         <tr>
-                <th>Response</th>
+                <th>Eating</th>
                 <th>Frequency</th>
         </tr>
-        {% for response, freq in response_dict.items %}
+        {% for response, freq in eating_dict.items %}
                 <tr>
-                        <td>{{ response }}</td>
+                        <td>{{ eating }}</td>
                         <td>{{ freq }}</td>
                 </tr>
         {% endfor %}
@@ -58,7 +50,7 @@ th, td {
 <br>
 <table style="width:40%">
         <tr>
-                <th>Tail Type</th>
+                <th>Tail</th>
                 <th>Frequency</th>
         </tr>
         {% for tail, freq in tail_dict.items %}

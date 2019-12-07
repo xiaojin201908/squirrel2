@@ -78,8 +78,7 @@ def stats(request):
     mean = get_sum / n
     mean = round(mean,6)
    
-    context = {'adult_juvenile': adult_juvenile,
-               'run_dict': run_dict,
+    context = {'run_dict': run_dict,
                'shift_dict': shift_dict,
                'eat_dict': eat_dict,
                'climb_dict':climb_dict,

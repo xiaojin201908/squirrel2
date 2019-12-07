@@ -18,8 +18,7 @@ li::before {
 <h2> List of Squirrels </h2>
 {% for s in all_squirrels %}
 <li> 
-
-	<a href = "{% url 'squirrel:update' s.unique_squirrel_id %}">{{s.unique_squirrel_id}}
+	<a href = "{% url s.unique_squirrel_id %}">{{s.unique_squirrel_id}}
 	</a>
 
 </li>

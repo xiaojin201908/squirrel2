@@ -10,7 +10,7 @@ import datetime
 
 def main_list(request):
     all_squirrels = Squirrel.objects.all()[::-1]
-    return render(request, 'squirrel/main_list.html',{'all_squirrels':all_squirrels})
+    return render(request, 'sightings/main_list.html',{'all_squirrels':all_squirrels})
     
 def add(request):
     context = dict()
@@ -51,7 +51,7 @@ def add(request):
             
             context = {'date_error':date_error,
                        'success':success,}
-    return render(request,'squirrel/add.html',context)
+    return render(request,'sightings/add.html',context)
 
 
 def update(request,unique_squirrel_id):
@@ -66,20 +66,20 @@ def update(request,unique_squirrel_id):
                       'instance': instance,
                       'success': success,}
 
-            return render(request, 'squirrel/edit.html', context)
+            return render(request, 'sightings/edit.html', context)
     
         else:
             context= {'form': form,
                       'error': 'The form was not updated successfully.'}
 
-            return render(request,'squirrel/edit.html' , context)      
+            return render(request,'sightings/edit.html' , context)      
 
     else:
         form = SquirrelForm(instance=instance,auto_id=False)
         context = {'form': form,
                   'instance': instance}
 
-        return render(request, 'squirrel/edit.html', context)
+        return render(request, 'sightings/edit.html', context)
 
 
 def stats(request):
@@ -119,7 +119,7 @@ def stats(request):
                'response_dict': response_dict,
                'tail_dict':tail_dict,}
    
-    return render(request,'squirrel/stats.html',context)
+    return render(request,'sightings/stats.html',context)
 
 
 def map_plot(request):
@@ -139,7 +139,7 @@ def map_plot(request):
                         for ident,lon,lat in zip(ids,longs,lats) ] 
     context = {'geo_json':geo_json}
 
-    return render(request, 'squirrel/map.html', context)
+    return render(request, 'sightings/map.html', context)
 
 def delete(request,unique_squirrel_id):
     instance = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
@@ -150,4 +150,4 @@ def delete(request,unique_squirrel_id):
 
     context = {'instance':instance}
 
-    return render(request, 'squirrel/delete.html', context)
+    return render(request, 'sightings/delete.html', context)

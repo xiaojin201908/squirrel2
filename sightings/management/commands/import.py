@@ -11,7 +11,7 @@ class Command(BaseCommand):
         path = options['csvfile'][0]
         import os
         import csv
-        from squirrel.models import Squirrel
+        from sightings.models import Squirrel
         import datetime
         with open(path, 'r') as csvFile:
             reader = csv.DictReader(csvFile, delimiter=',')

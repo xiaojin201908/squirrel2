@@ -12,7 +12,13 @@ We design this web applications to collect track paths of squirrels near the Cen
   - $ python manage.py import_squirrel_data /path/to/file.csv
 - export database in django to local 
   - $ python manage.py export_squirrel_data /path/to/file.csv
-  
+ 
+# Website Functions
+- view the details of each squirrel sighting
+- update the details of each squirrel sighting
+- add a new squirrel sighting to database
+- view the location of each squirrel sighting
+
 # Group Name and Section
 Project Group 6, Section 2
 

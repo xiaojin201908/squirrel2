@@ -10,6 +10,7 @@
 - import squarrel data to django database
   - $ python manage.py import /path/to/file.csv 
 - export database in django to local 
+  - $ python manage.py export /path/to/file.csv
 
 # Group Name and Section
 Project Group 6, Section 2

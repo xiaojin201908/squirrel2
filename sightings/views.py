@@ -60,35 +60,20 @@ def stats(request):
     adult_juvenile = age_dict['Adult']/age_dict['Juvenile']
     adult_juvenile = round(adult_juvenile,2)
     
-    # fur color
-    color_list = [value[0] for value in list(Squirrel.objects.all().values_list('primary_fur_color'))]
-    color_dict = dict(Counter(color_list))
-    color_dict.pop('')
+    # Running
+    run_list = [value[0] for value in list(Squirrel.objects.all().values_list('running'))]
+    run_dict = dict(Counter(run_list))
+   
 
     # shift
     shift_list = [value[0] for value in list(Squirrel.objects.all().values_list('shift'))]
     shift_dict = dict(Counter(shift_list))
 
-    # response
-    approaches_count = len([value[0] for value in list(Squirrel.objects.all().values_list('approaches')) if value[0] == 'true'])
-    indifferent_count = len([value[0] for value in list(Squirrel.objects.all().values_list('indifferent')) if value[0] == 'true'])
-    runs_from_count = len([value[0] for value in list(Squirrel.objects.all().values_list('runs_from')) if value[0] == 'true'])
-    response_dict = {'Approaches':approaches_count,
-            'Indifferent':indifferent_count,
-            'Runs From': runs_from_count,}
-
-    # tails
-    tail_flag_count = len([value[0] for value in list(Squirrel.objects.all().values_list('tail_flags')) if value[0] == 'true'])
-    tail_twitch_count = len([value[0] for value in list(Squirrel.objects.all().values_list('tail_twitches')) if value[0] == 'true'])
-    tail_dict = {'Flags':tail_flag_count,
-                     'Twitches':tail_twitch_count,}
-    
-    context = {'adult_juvenile': adult_juvenile,
-               'color_dict': color_dict,
-               'shift_dict': shift_dict,
-               'response_dict': response_dict,
-               'tail_dict':tail_dict,}
+    #eating
+    eat_list = [value[0] for value in list(Squirrel.objects.all().values_list('eating'))]
+    eat_dict = dict(Counter(eat_list))
    
+
     return render(request,'sightings/stats.html',context)
 
 

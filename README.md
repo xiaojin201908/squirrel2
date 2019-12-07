@@ -8,7 +8,7 @@
 
 # Main Comand
 - import squarrel data to django database
-  - python manage.py import
+  - $ python manage.py import /path/to/file.csv 
 - export database in django to local 
 
 # Group Name and Section

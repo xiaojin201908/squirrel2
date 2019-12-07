@@ -9,8 +9,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         path = options['csvfile'][0]
-        import os
-        import csv
         from sightings.models import Squirrel
         import datetime
         with open(path, 'r') as csvFile:

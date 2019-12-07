@@ -107,6 +107,6 @@ def map_plot(request):
                             "type": "Point",
                             "coordinates": [float(lon),float(lat)] }}
                         for ident,lon,lat in zip(ids,longs,lats) ] 
-    context = {'map':mapmap}
+    context = {'geo_json':mapmap}
 
     return render(request, 'sightings/map.html', context)

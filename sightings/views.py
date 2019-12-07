@@ -28,7 +28,6 @@ def add(request):
             'form':form,
     }
     return render(request,'sightings/add.html',context)
-  
 
 
 def update(request,unique_squirrel_id):
@@ -99,7 +98,7 @@ def map_plot(request):
     longs = Squirrel.objects.values_list('longitude',flat=True)[:n]
     ids = Squirrel.objects.values_list('unique_squirrel_id',flat=True)[:n]
 
-    geo_json = [ {"type": "Feature",
+    mapmap = [ {"type": "Feature",
                         "properties": {
                             "id":  ident,
                             "popupContent":  "squirrel_id=%s" % (ident,) 
@@ -108,6 +107,6 @@ def map_plot(request):
                             "type": "Point",
                             "coordinates": [float(lon),float(lat)] }}
                         for ident,lon,lat in zip(ids,longs,lats) ] 
-    context = {'geo_json':geo_json}
+    context = {'map':mapmap}
 
     return render(request, 'sightings/map.html', context)

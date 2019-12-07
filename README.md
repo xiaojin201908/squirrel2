@@ -17,7 +17,7 @@ We design this web applications to collect track paths of squirrels near the Cen
 - view the details of each squirrel sighting on home page
 - update the details of each squirrel sighting
 - add a new squirrel sighting to database
-- view the location of each squirrel sighting
+- view the location of 100 squirrel sightings in central park on the map 
 - get a general view of squirrel sightings statistics (counts of running, eating, climbing, shift, and mean of latitudes)
 
 # Group Name and Section

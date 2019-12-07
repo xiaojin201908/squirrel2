@@ -1,4 +1,5 @@
 # Description
+- import squarrel data to django database
 # Group Name and Section
 Project Group 6, Section 2
 # UNI of Each Memeber

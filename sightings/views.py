@@ -1,11 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
-
+from django.contrib import messages
 from .models import Squirrel
 from .forms import SquirrelForm
-
 import datetime
 
 def main_list(request):
@@ -140,14 +138,3 @@ def map_plot(request):
     context = {'geo_json':geo_json}
 
     return render(request, 'sightings/map.html', context)
-
-def delete(request,unique_squirrel_id):
-    instance = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
-    if request.method == 'POST':
-        instance.delete()
-
-        return redirect('/sightings/')
-
-    context = {'instance':instance}
-
-    return render(request, 'sightings/delete.html', context)

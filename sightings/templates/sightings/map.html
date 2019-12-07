@@ -40,7 +40,7 @@
         ];
         var zoom_level = 14;
         var map = L.map('map').setView(map_center, zoom_level);
-        L.tileLayer('https://{server}.tile.openstreetmap.org/{ids}/{longs}/{lats}.png', {
+        L.tileLayer('https://{server}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             server: 'a',  // can be 'a', 'b', or 'c'
             // must leave attribution in!
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',

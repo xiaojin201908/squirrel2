@@ -18,7 +18,7 @@ We design this web applications to collect track paths of squirrels near the Cen
 - update the details of each squirrel sighting
 - add a new squirrel sighting to database
 - view the location of each squirrel sighting
-- view counts of running, eating, climbing, shift, and mean of latitude
+- get a general view of squirrel sightings statistics (counts of running, eating, climbing, shift, and mean of latitudes)
 
 # Group Name and Section
 Project Group 6, Section 2

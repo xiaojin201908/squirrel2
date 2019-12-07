@@ -76,12 +76,21 @@ def stats(request):
     #Climbing
     climb_list = [value[0] for value in list(Squirrel.objects.all().values_list('climbing'))]
     climb_dict = dict(Counter(climb_list))  
+    
+    lat_list =[value[0] for value in list(Squirrel.objects.all().values_list('latitude'))]
+    n = len(lat_list) 
+    get_sum = sum(lat_list) 
+    mean = get_sum / n 
    
     context = {'adult_juvenile': adult_juvenile,
                'run_dict': run_dict,
                'shift_dict': shift_dict,
                'eat_dict': eat_dict,
-               'climb_dict':climb_dict,}
+               'climb_dict':climb_dict,
+               'mean':mean,
+              }
+    
+ 
     
     return render(request,'sightings/stats.html',context)
 

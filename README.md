@@ -7,6 +7,11 @@ We design this web applications to collect track paths of squirrels near the Cen
 
 .. _the 2018 Central Park Squirrel Census data: https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/
 
+For more complete instructions on contributing to CPython development,
+see the `Developer Guide`_.
+
+.. _Developer Guide: https://devguide.python.org/
+
 
 # Main Comand
 - import squarrel data to django database

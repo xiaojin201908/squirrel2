@@ -4,6 +4,9 @@
 - import squarrel data to django database
 - export database in django to local 
 
+# Website Function
+
+
 # Group Name and Section
 Project Group 6, Section 2
 # UNI of Each Memeber

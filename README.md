@@ -1,4 +1,8 @@
-# squirrel2
-# group name and section
-# UNI of Each memeber
-# app link
+# Description
+# Group Name and Section
+Project Group 6, Section 2
+# UNI of Each Memeber
+xj2242, xw2675
+# App link
+https://omega-buckeye-254017.appspot.com/sightings/
+

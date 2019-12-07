@@ -52,7 +52,7 @@ def add(request):
 
 
 def update(request,unique_squirrel_id):
-    upup = Squirrel.objects.get(id = unique_squirrel_id)
+    upup = Squirrel.objects.get(unique_squirrel_id=unique_squirrel_id)
     #instance = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=upup)

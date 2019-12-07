@@ -10,45 +10,25 @@ def all_list(request):
     return render(request, 'sightings/all_list.html',{'all_squirrels':all_squirrel})
     
 def add(request):
-    context = dict()
-    if request.method == 'POST':
-            s = Squirrel()
-            s.longitude = request.POST.get('longitude')
-            s.latitude = request.POST.get('latitude')
-            temp_id = request.POST.get('unique_squirrel_id')
-            while temp_id in Squirrel.objects.values_list('unique_squirrel_id',flat=True):
-                temp_id  += '-R'
-            s.unique_squirrel_id = temp_id
-            s.shift = request.POST.get('shift')
-            s.date = datetime.datetime.strptime(request.POST.get('date'),'%Y-%m-%d')
-            date_error = None
-            if s.date > datetime.datetime.now():
-                date_error = 'Date automatically corrected to today!'
-                s.date = datetime.datetime.now().date()
-            s.age = request.POST.get('age')
-            s.primary_fur_color = request.POST.get('primary_fur_color')
-            s.location = request.POST.get('location')
-            s.specific_location = request.POST.get('specific_location')
-            s.running = request.POST.get('running')
-            s.chasing = request.POST.get('chasing')
-            s.climbing = request.POST.get('climbing')
-            s.eating = request.POST.get('eating')
-            s.foraging = request.POST.get('foraging')
-            s.other_activities = request.POST.get('other_activities')
-            s.kuks = request.POST.get('kuks')
-            s.quaas = request.POST.get('quaas')
-            s.moans = request.POST.get('moans')
-            s.tail_flags = request.POST.get('tail_flags')
-            s.tail_twitches = request.POST.get('tail_twitches')
-            s.approaches = request.POST.get('approaches')
-            s.indifferent = request.POST.get('indifferent')
-            s.runs_from = request.POST.get('runs_from')
-            s.save()
-            yes = 'Successfully added!'
-            
-            context = {'date_error':date_error,
-                       'success':yes,}
+    if request.method =='POST':
+        form = SquirrelForm(request.POST)
+        #check data with form
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sighting/all_list')
+        
+        else:
+            context= {'form': form,
+                      'error': 'The form was not valid. Please do it again.'}
+
+            return render(request,'sightings/edit.html' , context) 
+    else:
+        form = SquirrelForm()
+    context = {
+            'form':form,
+    }
     return render(request,'sightings/add.html',context)
+  
 
 
 def update(request,unique_squirrel_id):

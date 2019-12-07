@@ -16,10 +16,12 @@ li::before {
 </br>
 
 <h2> List of Squirrels </h2>
-{% for s in all_squirrels %}
+{% for s in all_squirrel %}
 <li> 
-	<a href = "">{{s.unique_squirrel_id}}
+
+	<a href = "{% url 'squirrel:update' s.unique_squirrel_id %}">{{s.unique_squirrel_id}}
 	</a>
+
 </li>
 {% endfor %}
 </html>

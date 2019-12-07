@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         path = options['csvfile'][0]
-        from squirrel.models import Squirrel
+        from sightings.models import Squirrel
         import datetime
         with open(path, 'w', newline='') as csvFile:
             varlist = [v for v in vars(Squirrel.objects.all()[0]).keys() if v not in ['_state', 'id']]

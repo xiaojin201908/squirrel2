@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
-<style>
-li::before {
-	content: "\1F43F";
-	margin-left:-20px;
-	margin-right:10px;
-}
-</style>
+
 <title>Home Page: Squirrel List</title>
 
 <h1> HOME PAGE </h1>
@@ -18,7 +12,7 @@ li::before {
 <h2> List of Squirrels </h2>
 {% for s in all_squirrels %}
 <li> 
-	<a href = "{% url s.unique_squirrel_id %}">{{s.unique_squirrel_id}}
+	<a href = "{% url 'squirrel:update' s.unique_squirrel_id %}">{{s.unique_squirrel_id}}
 	</a>
 
 </li>

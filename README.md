@@ -23,8 +23,8 @@ We design this web applications to collect track paths of squirrels near the Cen
 # Group Name and Section
 Project Group 6, Section 2
 
-# UNI of Each Memeber
-xj2242, xw2675
+# UNIs of Each Memeber
+UNIs: xj2242, xw2675
 # App link
 https://omega-buckeye-254017.appspot.com/sightings/
 

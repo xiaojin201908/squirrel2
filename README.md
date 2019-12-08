@@ -3,7 +3,7 @@
 </div>
 
 # Description
-We design this web applications to collect track paths of squirrels near the Central Park in NYC. We import `the 2018 Central Park Squirrel Census data`_ and allow our users to add, update data and view squirrel-sightings map. The link to the original database is: https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/ We choose the attributes that we find interesting to put into our databases.
+We design this web application to collect track paths of squirrels near the Central Park in NYC. We import `the 2018 Central Park Squirrel Census data`_ and allow our users to add, update data and view squirrel-sightings map. The link to the original database is: https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/ We choose the attributes that we find interesting to put into our databases.
 
 
 

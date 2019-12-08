@@ -15,7 +15,7 @@ We design this web applications to collect track paths of squirrels near the Cen
  
 # Website Functions
 - view the details of each squirrel sighting on home page
-- update the details of each squirrel sighting
+- update the details of each squirrel sighting by click on each ID
 - add a new squirrel sighting to database
 - view the location of 100 squirrel sightings in central park on the map 
 - get a general view of squirrel sightings statistics (counts of running, eating, climbing, shift, and mean of latitudes)
@@ -25,6 +25,7 @@ Project Group 6, Section 2
 
 # UNIs of Each Memeber
 UNIs: xj2242, xw2675
+
 # App link
 https://omega-buckeye-254017.appspot.com/sightings/
 

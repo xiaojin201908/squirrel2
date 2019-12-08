@@ -18,7 +18,7 @@ class Command(BaseCommand):
                 line =[]
                 for field in fields:
                     line.append(getattr(object, field.name))
-                writer.writerow(row)
+                writer.writerow(line)
                     
                     
 

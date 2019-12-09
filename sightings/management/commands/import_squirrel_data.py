@@ -6,13 +6,13 @@ from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
     def add_arguments(self,parser):
-        parser.add_argument('csvfile',nargs='+',type=str)
+        parser.add_argument('csvfile')
 
     def handle(self, *args, **options):
-        path = options['csvfile'][0]
+        path = options['csvfile']
 
         with open(path, 'r') as csvFile:
-            reader = csv.DictReader(csvFile, delimiter=',')
+            reader = csv.DictReader(csvFile)
             for row in reader:
                 while row['Unique Squirrel ID'] in Squirrel.objects.values_list('unique_squirrel_id',flat=True):
                     row['Unique Squirrel ID'] += '-2nd'
